@@ -15,8 +15,10 @@ export const Header = ({ column }: HeaderProps) => {
     );
 };
 
+// Record <Key, Value>
+// 키가 Key타입이고 값이 Value 타입인 객체 타입을 생성함
 type TableProps = {
-    columns: Column[];
+    columns: Column[]; // Column 타입의 객체들을 가지는 배열롰써 선언
     data: Record<string, any>[];
     label: string;
 };

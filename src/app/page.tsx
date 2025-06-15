@@ -1,4 +1,5 @@
 import Table from './components/table';
+
 const columns = [
     { id: 'name', label: 'Name' },
     { id: 'age', label: 'Username' },
