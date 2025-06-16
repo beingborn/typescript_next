@@ -1,4 +1,7 @@
+'use client';
+
 import Table from './components/table';
+import Button from './components/button';
 
 const columns = [
     { id: 'name', label: 'Name' },
@@ -13,9 +16,14 @@ const data = [
 ];
 
 export default function Home() {
+    const handleConsole = () => {
+        console.log('Hi');
+    };
+
     return (
         <div className="max-w-[1200] mx-auto">
             <Table columns={columns} data={data} label="First Table" />
+            <Button onClick={handleConsole}>안녕</Button>
         </div>
     );
 }
