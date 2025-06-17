@@ -2,6 +2,8 @@
 
 import Table from './components/table';
 import Button from './components/button';
+import Input from './components/input';
+import { useState } from 'react';
 
 const columns = [
     { id: 'name', label: 'Name' },
@@ -16,6 +18,8 @@ const data = [
 ];
 
 export default function Home() {
+    const [post, setPost] = useState('');
+
     const handleConsole = () => {
         console.log('Hi');
     };
@@ -24,6 +28,7 @@ export default function Home() {
         <div className="max-w-[1200] mx-auto">
             <Table columns={columns} data={data} label="First Table" />
             <Button onClick={handleConsole}>안녕</Button>
+            <Input value={post} onChange={(e) => setPost(e.target.value)} />
         </div>
     );
 }
