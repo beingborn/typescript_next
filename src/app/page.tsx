@@ -1,8 +1,8 @@
 'use client';
 
-import Table from './components/table';
-import Button from './components/button';
-import Input from './components/input';
+import Table from './components/Table';
+import Button from './components/Button';
+import Input from './components/Input';
 import { useState } from 'react';
 
 const columns = [
