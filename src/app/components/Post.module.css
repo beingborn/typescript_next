@@ -1,0 +1,14 @@
+.post {
+    animation: animate-in 1s ease-out forwards;
+}
+
+@keyframes animate-in {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

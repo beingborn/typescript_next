@@ -1,3 +1,5 @@
+import React from 'react'
+
 /**
  * 모달 조건부 제어
  *
