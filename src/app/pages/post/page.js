@@ -1,12 +1,9 @@
-import Post from '../../components/Post.tsx';
+import PostList from '../../components/PostList.tsx';
 
 const PostPage = () => {
     return (
         <div>
-            Post 페이지
-            <Post author="장미쉘" body="ReactIsAweSome" />
-            <Post author="장미쉘2" body="ReactIsAweSome2" />
-            <Post author="장미쉘2" body="ReactIsAweSome3" />
+            <PostList />
         </div>
     );
 };
