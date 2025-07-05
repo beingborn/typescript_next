@@ -4,8 +4,10 @@ import React from 'react';
 import Post from './Post';
 import NewPost from './NewPost';
 import { useState } from 'react';
+import Modal from './Modal';
 
 const PostList = () => {
+    const [modalIsVisible, setModalIsVisible] = useState(true);
     const [enteredBody, setEnteredBody] = useState('');
     const [enteredAuthor, setEnteredAuthor] = useState('');
 
@@ -17,9 +19,24 @@ const PostList = () => {
         setEnteredAuthor(event.target.value);
     };
 
+    const hideModalHandler = () => {
+        setModalIsVisible(false);
+    };
+
+    const showModalHandler = () => {
+        setModalIsVisible(true);
+    };
+
     return (
         <>
-            <NewPost onBodyChange={changeBodyHandler} onAuthorChange={changeAuthorHandler} />
+            {modalIsVisible ? (
+                <Modal onClose={hideModalHandler}>
+                    <NewPost
+                        onBodyChange={changeBodyHandler}
+                        onAuthorChange={changeAuthorHandler}
+                    />
+                </Modal>
+            ) : null}
             <ul className="list-none max-w-4xl my-4 mx-auto p-4 grid gap-4 grid-cols-3">
                 <Post author={enteredAuthor} body={enteredBody} />
                 <Post author="Maximum" body="안녕하세요" />

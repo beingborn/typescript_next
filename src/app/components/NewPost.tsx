@@ -7,7 +7,7 @@ interface NewPostProps {
 
 const NewPost = ({ onBodyChange, onAuthorChange }: NewPostProps) => {
     return (
-        <form className="bg-blue-200 p-4 w-80 mx-auto my-8 rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
+        <form className="bg-blue-200 p-4 w-80 mx-auto rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
             <p>
                 <label htmlFor="body" className="block mb-0.5 font-bold">
                     Text

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 /**
  * 모달 조건부 제어
@@ -20,10 +20,17 @@ const Modal = ({ children, onClose }: ModalProps) => {
     return (
         <>
             <div
-                className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
+                className="fixed top-0 left-0 w-full h-screen bg-black/60 z-10"
                 onClick={onClose}
             ></div>
-            <dialog open>{children}</dialog>
+            <dialog
+                open
+                className="mx-auto border-none rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.2)] p-0 overflow-hidden z-10"
+            >
+                {children}
+            </dialog>
         </>
     );
 };
+
+export default Modal;
