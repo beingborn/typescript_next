@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Typescript_next    
+> 활용 기술 : typescript, next.js 
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**프로젝트 상세**  
+이 프로젝트는 Typescript의 기본 기능인 Type 제어를 활용해본 프로젝트입니다.
+모달 (Modal), 인풋(Input), 테이블(Table), 레이아웃 (Header, Container) 컴포넌트를 만들었습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  - **유저 입력 값에 따라 리스트 출력**: 폼 제출 이벤트를 이용해 간단한 게시물 추가 기능을 구현하였습니다. 
+  - **Interface, Type 활용한 타입 제어**: Interface, Type을 활용해 리액트 Props를 제어했습니다.
+  - **데이터 테이블 구현**: 데이터를 활용해 값을 자동으로 출력하는 Table 컴포넌트를 제작했습니다. 
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Reference
+- [Git README 템플릿](https://github.com/ohahohah/readme-template) : Git README 템플릿 
