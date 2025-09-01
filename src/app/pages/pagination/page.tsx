@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import Table from '@/app/components/Table';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination';
 
 /**
@@ -10,30 +12,67 @@ import Pagination from 'react-js-pagination';
  */
 
 const columns = [
-    { id: 'name', label: 'Name' },
-    { id: 'age', label: 'Username' },
-    { id: 'email', label: 'email' },
-];
-
-const data = [
-    { name: 'John', age: 30, email: 'USA@gmail.com' },
-    { name: 'Alice', age: 25, email: 'Canada@naver.com' },
-    { name: 'Bob', age: 35, email: 'UK@naver.com' },
+    { id: 'userId', label: '유저명' },
+    { id: 'id', label: '아이디' },
+    { id: 'title', label: '제목' },
+    { id: 'body', label: '내용' },
 ];
 
 export default function PaginationTest() {
-    const [data, setData] = useState([]);
-    const itemCount = 5;
+    type Post = {
+        userId: number;
+        id: number;
+        title: string;
+        body: string;
+    };
+
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState<Post[]>([]);
+    const [page, setPage] = useState(1);
+    const [itemCount, setItemCount] = useState(10);
+    const offset = (page - 1) * itemCount;
+    const sliceData = data.slice(offset, offset + itemCount);
+
+    const handlePageChange = (page: any) => {
+        setPage(page);
+    };
+
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+            setData(response.data);
+            setLoading(false);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div>로딩 중..</div>;
+    }
 
     return (
         <div>
-            {/* <Table/> */}
+            <select value={itemCount} onChange={(e) => setItemCount(Number(e.target.value))}>
+                <option value="5">5건씩 보기</option>
+                <option value="10">10건씩 보기</option>
+                <option value="15">15건씩 보기</option>
+                <option value="20">20건씩 보기</option>
+            </select>
+
+            <Table label="test" columns={columns} data={sliceData} />
+
             <Pagination
-                activePage={1}
+                activePage={page}
                 itemsCountPerPage={itemCount}
-                totalItemsCount={300}
+                totalItemsCount={data.length - 1}
                 pageRangeDisplayed={5}
-                onChange={''}
+                onChange={handlePageChange}
             />
         </div>
     );
