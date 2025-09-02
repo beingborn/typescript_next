@@ -14,11 +14,11 @@ import Pagination from 'react-js-pagination';
 const columns = [
     { id: 'userId', label: '유저명' },
     { id: 'id', label: '아이디' },
-    { id: 'title', label: '제목' },
+    { id: 'title', label: '제목', isLink: true, href: 'posts' },
     { id: 'body', label: '내용' },
 ];
 
-export default function PaginationTest() {
+export default function PostsList() {
     type Post = {
         userId: number;
         id: number;

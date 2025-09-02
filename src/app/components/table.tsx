@@ -1,6 +1,12 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 type Column = {
     id: string;
     label: string;
+    isLink?: boolean;
+    href?: string;
 };
 
 type HeaderProps = {
@@ -24,6 +30,8 @@ interface TableProps {
 }
 
 const Table = ({ columns, label, data }: TableProps) => {
+    const router = useRouter();
+
     return (
         <table className="w-full table-fixed">
             <caption className="sr-only">{label}</caption>
@@ -38,7 +46,15 @@ const Table = ({ columns, label, data }: TableProps) => {
                 {data.map((row, index) => (
                     <tr key={index}>
                         {columns.map((column) => (
-                            <td key={column.id} className="h-10 border border-gray-300 px-2">
+                            <td
+                                key={column.id}
+                                className="h-10 border border-gray-300 px-2 bg-white"
+                                onClick={() => {
+                                    if (column.isLink) {
+                                        router.push(`/${column.href}/${row.id}`);
+                                    }
+                                }}
+                            >
                                 {row[column.id]}
                             </td>
                         ))}
