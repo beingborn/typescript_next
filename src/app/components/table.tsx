@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 type Column = {
     id: string;
@@ -10,15 +11,25 @@ type Column = {
 };
 
 type HeaderProps = {
-    column: Column;
+    column?: Column;
+    children?: React.ReactNode;
 };
 
-export const Header = ({ column }: HeaderProps) => {
+type CellProps = {
+    children: React.ReactNode;
+};
+
+const Header = ({ column, children }: HeaderProps) => {
     return (
         <th className="h-10 border border-gray-300 border-collapse text-left px-2 bg-sky-100">
-            {column.label}
+            {column && column.label}
+            {children}
         </th>
     );
+};
+
+const Cell = ({ children }: CellProps) => {
+    return <td className="h-10 border border-gray-300 px-2 bg-white">{children}</td>;
 };
 
 // Record <Key, Value>
@@ -48,10 +59,10 @@ const Table = ({ columns, label, data }: TableProps) => {
                         {columns.map((column) => (
                             <td
                                 key={column.id}
-                                className="h-10 border border-gray-300 px-2 bg-white"
+                                className={`h-10 border border-gray-300 px-2 bg-white ${column.isLink && ' cursor-pointer hover:underline'}`}
                                 onClick={() => {
                                     if (column.isLink) {
-                                        router.push(`/${column.href}/${row.id}`);
+                                        router.push(`/pages/${column.href}/${row.id}`);
                                     }
                                 }}
                             >
@@ -67,4 +78,5 @@ const Table = ({ columns, label, data }: TableProps) => {
 
 Table.Header = Header;
 
+export { Cell as TableCell, Header as TableHead };
 export default Table;
