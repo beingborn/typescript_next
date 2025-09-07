@@ -1,6 +1,6 @@
 'use client';
 
-import Table from '@/app/components/Table';
+import Table from '@/app/components/table';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination';

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import BreadCrumbs from './layout/breadcrumbs/Breadcrumb';
 import Header from './layout/header/header';
 import { PageContainer } from './layout/page-container/page-container';
 
@@ -30,7 +31,10 @@ export default function RootLayout({
                 className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full bg-blue-50`}
             >
                 <Header />
-                <PageContainer title="예시">{children}</PageContainer>
+                <PageContainer title="예시">
+                    <BreadCrumbs />
+                    {children}
+                </PageContainer>
             </body>
         </html>
     );
