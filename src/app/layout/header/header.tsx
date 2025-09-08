@@ -1,26 +1,17 @@
 'use client';
 
-import { useState } from 'react';
-import Loading from '@/app/components/Loading';
+import React, { forwardRef } from 'react';
 
-const Header = () => {
-    const [isReady, setIsReady] = useState(false);
-
+const Header = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props, ref) => {
     return (
-        <header>
-            {isReady && <Loading size="md" message="로딩중에 있습니다." />}
-            <button
-                onClick={() => {
-                    setIsReady(true);
-                    setTimeout(() => {
-                        setIsReady(false);
-                    }, 3000);
-                }}
-            >
-                로딩중 걸기
-            </button>
+        <header
+            ref={ref}
+            className="bg-blue-400 text-white flex flex-col justify-center px-4 h-[40px] w-full"
+            {...props}
+        >
+            <div>헤더</div>
         </header>
     );
-};
+});
 
 export default Header;
