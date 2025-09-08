@@ -3,6 +3,7 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import { useEffect, useRef, useState } from 'react';
 import './globals.css';
+import BreadCrumbs from './layout/breadcrumbs/Breadcrumb';
 import Footer from './layout/footer/footer';
 import Header from './layout/header/header';
 import PageContainer from './layout/page-container/page-container';
@@ -50,6 +51,7 @@ export default function RootLayout({
             >
                 <Header ref={headerRef} />
                 <PageContainer height={containerHeight || 'auto'} ref={containerRef} title="예시">
+                    <BreadCrumbs />
                     {children}
                 </PageContainer>
                 <Footer ref={footerRef} />

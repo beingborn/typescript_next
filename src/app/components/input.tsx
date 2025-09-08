@@ -6,10 +6,10 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ type = 'text', value, onChange, ...rest }: InputProps) => {
+const Input = ({ type = 'text', value, onChange, className, ...rest }: InputProps) => {
     return (
         <input
-            className="p-2 border border-zinc-600"
+            className={`p-2 border border-zinc-600 ${className}`}
             type={type}
             value={value}
             onChange={onChange}

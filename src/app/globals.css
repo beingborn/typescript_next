@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* Reset */
 ul {
     list-style: none;
     padding: 0;
