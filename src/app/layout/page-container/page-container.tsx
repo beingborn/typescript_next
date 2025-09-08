@@ -12,7 +12,7 @@ const PageContainer = forwardRef<HTMLDivElement, PageContainerProps>(
         const documentTitle = `Typescript - ${title}`;
 
         return (
-            <div ref={ref} className="px-4 flex flex-col" style={{ height: height }}>
+            <div ref={ref} className="p-4 flex flex-col" style={{ height: height }}>
                 <Head>
                     <title>{documentTitle}</title>
                     <meta name="description" content="Error monitoring" />

@@ -1,6 +1,7 @@
 'use client';
 
 import { Geist, Geist_Mono } from 'next/font/google';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import './globals.css';
 import BreadCrumbs from './layout/breadcrumbs/Breadcrumb';
@@ -30,8 +31,11 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const [containerHeight, setContainerHeight] = useState<string | null>(null);
+    const pathname = usePathname();
+    const path = pathname.split('/');
+    const page = path.at(-1);
 
+    const [containerHeight, setContainerHeight] = useState<string | null>(null);
     const headerRef = useRef<HTMLElement | null>(null);
     const footerRef = useRef<HTMLElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +55,7 @@ export default function RootLayout({
             >
                 <Header ref={headerRef} />
                 <PageContainer height={containerHeight || 'auto'} ref={containerRef} title="예시">
-                    <BreadCrumbs />
+                    {page !== '' && <BreadCrumbs />}
                     {children}
                 </PageContainer>
                 <Footer ref={footerRef} />

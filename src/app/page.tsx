@@ -1,7 +1,7 @@
 'use client';
 
-import Button from './components/button';
-import Table from './components/table';
+import Button from './components/Button';
+import Table from './components/Table';
 
 const columns = [
     { id: 'name', label: 'Name' },
