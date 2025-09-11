@@ -40,13 +40,16 @@ export default function RootLayout({
     const footerRef = useRef<HTMLElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
+    const isHome = page == '';
+    const isLogin = pathname.includes('login');
+
     useEffect(() => {
         if (headerRef.current && footerRef.current && containerRef.current) {
             const h = `calc(100vh - ${headerRef.current?.offsetHeight + footerRef.current?.offsetHeight}px)`;
 
             setContainerHeight(h);
         }
-    }, []);
+    }, [containerHeight]);
 
     return (
         <html lang="ko">
@@ -55,7 +58,7 @@ export default function RootLayout({
             >
                 <Header ref={headerRef} />
                 <PageContainer height={containerHeight || 'auto'} ref={containerRef} title="예시">
-                    {page !== '' && <BreadCrumbs />}
+                    {!isHome && !isLogin && <BreadCrumbs />}
                     {children}
                 </PageContainer>
                 <Footer ref={footerRef} />
